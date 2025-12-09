@@ -16,4 +16,6 @@ const AuditLogSchema = new Schema<IAuditLog>({
   meta: { type: Schema.Types.Mixed }
 }, { timestamps: true });
 
-export default model<IAuditLog>('AuditLog', AuditLogSchema);
+export default model<IAuditLog>('AuditLog', AuditLogSchema); 
+
+
