@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import * as authService from '../services/auth.service';
-import { RefreshToken } from '../models/RefreshToken';
+import { RefreshToken } from '../models/Refreshtoken';
 
 export async function register(req: Request, res: Response, next: NextFunction) {
   try {
