@@ -7,7 +7,7 @@ import { createEmployeeSchema } from '../validators/employee.validator';
 const router = Router();
 router.get('/allEmployees', authenticate, authorize(['admin','hr','manager']), empCtrl.listEmployees);
 router.post('/create-employee', authenticate, authorize(['admin','hr']), validate(createEmployeeSchema), empCtrl.createEmployee);
-router.put('/:id', authenticate, authorize(['admin','hr']), validate(createEmployeeSchema), empCtrl.updateEmployee);
+router.put('/update/:id', authenticate, authorize(['admin','hr']), validate(createEmployeeSchema), empCtrl.updateEmployee);
 router.delete('/:id', authenticate, authorize(['admin','hr']), empCtrl.deleteEmployee);
 router.get('/:id', authenticate, authorize(['admin','hr']), empCtrl.getEmployee);
 router.post('/:id/documents', authenticate, authorize(['admin','hr','manager']), empCtrl.upload.single('file'), empCtrl.uploadDocument);

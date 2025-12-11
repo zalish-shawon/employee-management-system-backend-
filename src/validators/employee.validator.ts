@@ -3,7 +3,7 @@ import { z } from 'zod';
 export const createEmployeeSchema = {
   body: z.object({
     userId: z.string().optional(),
-    employeeId: z.string().min(1),
+    employeeId: z.string().min(1).optional(),
     position: z.string().optional(),
     department: z.string().optional(),
     dateOfJoining: z.string().optional(),

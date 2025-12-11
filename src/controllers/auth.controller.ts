@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import * as authService from '../services/auth.service';
 import { RefreshToken } from '../models/Refreshtoken';
+import User from '../models/User';
 
 export async function register(req: Request, res: Response, next: NextFunction) {
   try {
@@ -30,5 +31,24 @@ export const logout = async (req: Request, res: Response) => {
     res.json({ message: "Logged out successfully" });
   } catch (err) {
     res.status(500).json({ error: err });
+  }
+};
+
+export const meController = async (req: Request, res: Response) => {
+  try {
+    const userId = (req as any).user.id;
+
+    const user = await User.findById(userId).select("-password");
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    res.json({
+      message: "User profile fetched successfully",
+      user,
+    });
+  } catch (error) {
+    res.status(500).json({ message: "Failed to fetch user profile", error });
   }
 };
