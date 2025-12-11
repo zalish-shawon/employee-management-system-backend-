@@ -66,6 +66,7 @@ npm start
 
 
 ### 📌 API Endpoints
+```
 Auth
 Method	URL	Description
 POST	/auth/register	Register user
@@ -91,10 +92,11 @@ POST	/attendance	Mark attendance
 GET	/attendance/:id	Get single attendance record
 PUT	/attendance/:id	Update attendance record
 DELETE	/attendance/:id	Delete attendance record
-
 ```
-### 🛡 Authentication
 
+### 🛡 Authentication
+```
 Use Bearer Token:
 
 Authorization: Bearer <your_token>
+```
