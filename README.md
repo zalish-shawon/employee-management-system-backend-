@@ -19,6 +19,7 @@ It includes authentication, departments module, employees module, and attendance
 
 ## 📁 Folder Structure
 
+```
 backend/
 │── src/
 │ │── config/
@@ -33,7 +34,7 @@ backend/
 │── tsconfig.json
 │── .env
 
-
+```
 ---
 
 ## ⚙️ Environment Variables
