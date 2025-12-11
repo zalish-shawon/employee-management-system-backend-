@@ -10,6 +10,5 @@ router.post('/create-employee', authenticate, authorize(['admin','hr']), validat
 router.put('/update/:id', authenticate, authorize(['admin','hr']), validate(createEmployeeSchema), empCtrl.updateEmployee);
 router.delete('/:id', authenticate, authorize(['admin','hr']), empCtrl.deleteEmployee);
 router.get('/:id', authenticate, authorize(['admin','hr']), empCtrl.getEmployee);
-router.post('/:id/documents', authenticate, authorize(['admin','hr','manager']), empCtrl.upload.single('file'), empCtrl.uploadDocument);
 
 export default router;

@@ -17,5 +17,5 @@ export const config = {
 
   UPLOAD_DIR: process.env.UPLOAD_DIR || "uploads",
 
-  FRONTEND_ORIGIN: process.env.FRONTEND_ORIGIN || "http://localhost:3000"
+  FRONTEND_ORIGIN: process.env.FRONTEND_ORIGIN || "https://employee-management-system-frontend-chi.vercel.app"
 };

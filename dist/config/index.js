@@ -16,5 +16,5 @@ exports.config = {
     REFRESH_TOKEN_EXPIRY: process.env.REFRESH_TOKEN_EXPIRY || "7d",
     SALT_ROUNDS: Number(process.env.SALT_ROUNDS) || 10,
     UPLOAD_DIR: process.env.UPLOAD_DIR || "uploads",
-    FRONTEND_ORIGIN: process.env.FRONTEND_ORIGIN || "http://localhost:3000"
+    FRONTEND_ORIGIN: process.env.FRONTEND_ORIGIN || "https://employee-management-system-frontend-chi.vercel.app"
 };

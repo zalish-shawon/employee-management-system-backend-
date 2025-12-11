@@ -44,5 +44,4 @@ router.post('/create-employee', auth_middleware_1.authenticate, (0, auth_middlew
 router.put('/update/:id', auth_middleware_1.authenticate, (0, auth_middleware_1.authorize)(['admin', 'hr']), (0, validate_middleware_1.validate)(employee_validator_1.createEmployeeSchema), empCtrl.updateEmployee);
 router.delete('/:id', auth_middleware_1.authenticate, (0, auth_middleware_1.authorize)(['admin', 'hr']), empCtrl.deleteEmployee);
 router.get('/:id', auth_middleware_1.authenticate, (0, auth_middleware_1.authorize)(['admin', 'hr']), empCtrl.getEmployee);
-router.post('/:id/documents', auth_middleware_1.authenticate, (0, auth_middleware_1.authorize)(['admin', 'hr', 'manager']), empCtrl.upload.single('file'), empCtrl.uploadDocument);
 exports.default = router;

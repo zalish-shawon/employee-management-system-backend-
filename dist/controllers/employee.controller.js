@@ -36,43 +36,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.deleteEmployee = exports.updateEmployee = exports.upload = void 0;
-exports.uploadDocument = uploadDocument;
+exports.deleteEmployee = exports.updateEmployee = void 0;
 exports.createEmployee = createEmployee;
 exports.listEmployees = listEmployees;
 exports.getEmployee = getEmployee;
 const employeeService = __importStar(require("../services/employee.service"));
 const paginator_1 = require("../utils/paginator");
 const Employee_1 = __importDefault(require("../models/Employee"));
-const multer_1 = __importDefault(require("multer"));
-const fs_1 = __importDefault(require("fs"));
-const config_1 = require("../config");
-const uploadDir = config_1.config.UPLOAD_DIR;
-if (!fs_1.default.existsSync(uploadDir))
-    fs_1.default.mkdirSync(uploadDir, { recursive: true });
-const storage = multer_1.default.diskStorage({
-    destination: (req, file, cb) => cb(null, uploadDir),
-    filename: (req, file, cb) => cb(null, `${Date.now()}-${file.originalname}`)
-});
-exports.upload = (0, multer_1.default)({ storage });
-async function uploadDocument(req, res, next) {
-    try {
-        const empId = req.params.id;
-        const file = req.file;
-        if (!file)
-            return res.status(400).json({ message: 'No file' });
-        const emp = await employeeService.getEmployeeById(empId);
-        if (!emp)
-            return res.status(404).json({ message: 'Employee not found' });
-        emp.documents = emp.documents || [];
-        emp.documents.push({ name: file.originalname, url: `/uploads/${file.filename}` });
-        await emp.save();
-        res.json(emp);
-    }
-    catch (err) {
-        next(err);
-    }
-}
 async function createEmployee(req, res, next) {
     try {
         const doc = await employeeService.createEmployee(req.body);
