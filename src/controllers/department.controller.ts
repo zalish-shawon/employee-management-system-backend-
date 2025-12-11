@@ -21,10 +21,30 @@ export const getDepartments = async (req: Request, res: Response) => {
   }
 };
 
+// Get Single Department
+export const getDepartment = async (req: Request, res: Response) => {
+  try {
+    const dept = await Department.findById(req.params.id);
+
+    if (!dept) {
+      return res.status(404).json({ message: "Department not found" });
+    }
+
+    res.json(dept);
+  } catch (err) {
+    res.status(500).json({ error: err });
+  }
+};
+
 // Update Department
 export const updateDepartment = async (req: Request, res: Response) => {
   try {
-    const updated = await Department.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    const updated = await Department.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      { new: true }
+    );
+
     res.json(updated);
   } catch (err) {
     res.status(500).json({ error: err });
