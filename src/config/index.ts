@@ -10,8 +10,8 @@ export const config = {
   JWT_SECRET: process.env.JWT_SECRET as string,
   JWT_REFRESH_SECRET: process.env.JWT_REFRESH_SECRET as string,
 
-  ACCESS_TOKEN_EXPIRY: process.env.ACCESS_TOKEN_EXPIRY || "15m",
-  REFRESH_TOKEN_EXPIRY: process.env.REFRESH_TOKEN_EXPIRY || "7d",
+  ACCESS_TOKEN_EXPIRY: process.env.ACCESS_TOKEN_EXPIRY as string || "15m",
+  REFRESH_TOKEN_EXPIRY: process.env.REFRESH_TOKEN_EXPIRY as string || "7d",
 
   SALT_ROUNDS: Number(process.env.SALT_ROUNDS) || 10,
 

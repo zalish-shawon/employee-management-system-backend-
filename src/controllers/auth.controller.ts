@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import * as authService from '../services/auth.service';
-import { RefreshToken } from '../models/Refreshtoken';
 import User from '../models/User';
+import { RefreshToken } from '../models/RefreshToken';
 
 export async function register(req: Request, res: Response, next: NextFunction) {
   try {
